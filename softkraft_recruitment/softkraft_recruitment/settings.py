@@ -79,13 +79,13 @@ WSGI_APPLICATION = "softkraft_recruitment.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-password = os.environ["POSTGRES_PASSWORD"]
+database_password = os.environ.get("POSTGRES_PASSWORD", "postgres")
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
         "USER": "postgres",
-        "PASSWORD": password,
+        "PASSWORD": database_password,
         "HOST": "db",
         "PORT": "5432",
     }
