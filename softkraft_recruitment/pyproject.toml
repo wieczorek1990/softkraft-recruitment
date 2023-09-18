@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "softkraft_recuritment"
+version = "0.1.0"
+description = "Backend for recruitment at SoftKraft."
+
+[tool.black]
+exclude = ".*/migrations/.*"
+line-length = 80
+
+[tool.isort]
+profile = "black"
+known_local = "api,softkraft_recruitment"
+line_length = 80
+sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER,LOCAL"

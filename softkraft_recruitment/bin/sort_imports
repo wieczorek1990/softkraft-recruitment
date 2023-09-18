@@ -1,0 +1,3 @@
+#!/bin/bash
+# Sorts code imports.
+isort .

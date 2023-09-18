@@ -1,0 +1,3 @@
+#!/bin/bash
+# Makes migrations using Django.
+docker compose exec web ./manage.py makemigrations

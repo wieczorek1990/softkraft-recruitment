@@ -1,0 +1,3 @@
+#!/bin/bash
+# Loads Django shell.
+docker compose exec web ./manage.py shell

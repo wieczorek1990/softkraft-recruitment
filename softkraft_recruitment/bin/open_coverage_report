@@ -1,0 +1,3 @@
+#!/bin/bash
+# Opens coverage HTML report.
+open htmlcov/index.html

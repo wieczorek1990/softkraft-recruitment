@@ -1,0 +1,27 @@
+#!/bin/bash
+# Runs guard.
+RESET="\e[0m"
+RED="\e[31m"
+GREEN="\e[32m"
+
+function print() {
+  text="$1"
+  color="$2"
+  printf "${color}${text}${RESET}\n"
+}
+
+print "Guard!" "${GREEN}"
+
+./bin/sort_imports &&\
+ ./bin/format &&\
+ ./bin/style &&\
+ ./bin/lint &&\
+ ./bin/typing &&\
+ ./bin/parallel_test
+
+if [ $? -eq 0 ]
+then
+  print "All good." "${GREEN}"
+else
+  print "Alarm!" "${RED}"
+fi

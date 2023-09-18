@@ -1,0 +1,11 @@
+#!/bin/bash
+# Runs coverage report creation.
+# This script is to be run from within the Docker container.
+source 'bin/_apps'
+source 'bin/_cpu_count'
+
+rm -rf htmlcov &&\
+ coverage run --concurrency=multiprocessing\
+  manage.py test --parallel "$(cpu_count)" $(apps) $@ &&\
+ coverage combine &&\
+ coverage html

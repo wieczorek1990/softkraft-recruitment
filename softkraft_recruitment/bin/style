@@ -1,0 +1,3 @@
+#!/bin/bash
+# Checks code style.
+flake8 .

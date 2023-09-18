@@ -1,0 +1,5 @@
+#!/bin/bash
+# Runs tests in parallel.
+source 'bin/_cpu_count'
+
+docker compose exec web ./manage.py test --noinput --parallel "$(cpu_count)" "$@"

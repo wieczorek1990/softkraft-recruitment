@@ -1,0 +1,5 @@
+#!/bin/bash
+# Helper for obtaining local apps.
+function apps() {
+  python -c "from website import apps; print(' '.join(apps.LOCAL_APPS))"
+}

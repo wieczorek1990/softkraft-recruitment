@@ -1,0 +1,10 @@
+#!/bin/bash
+# Checks typing.
+if [ $# -eq 0 ]
+then
+  dir="."
+else
+  dir="$*"
+fi
+
+mypy --disallow-untyped-defs --disallow-incomplete-defs $dir

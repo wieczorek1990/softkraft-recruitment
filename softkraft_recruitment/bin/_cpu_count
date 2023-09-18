@@ -1,0 +1,5 @@
+#!/bin/bash
+# Helper for obtaining cpu count.
+function cpu_count() {
+  python -c 'import multiprocessing; print(multiprocessing.cpu_count())'
+}
