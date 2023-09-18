@@ -38,7 +38,10 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
-EXTENSION_APPS = ["rest_framework"]
+EXTENSION_APPS = [
+    "rest_framework",
+    "django_filters",
+]
 LOCAL_APPS = ["api"]
 INSTALLED_APPS = DJANGO_APPS + EXTENSION_APPS + LOCAL_APPS
 
