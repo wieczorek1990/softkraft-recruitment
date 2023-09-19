@@ -1,0 +1,3 @@
+#!/bin/bash
+# Drops database using Django.
+docker compose exec web ./manage.py show_urls $@

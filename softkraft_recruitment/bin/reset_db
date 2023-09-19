@@ -1,3 +1,3 @@
 #!/bin/bash
 # Drops database using Django.
-docker compose exec web ./manage.py reset_db -c $@
+docker compose exec web ./manage.py reset_db --noinput -c $@
