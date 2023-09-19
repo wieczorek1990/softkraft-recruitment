@@ -10,7 +10,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    products = ProductSerializer(many=True)
+    products = ProductSerializer(source='filtered_products', many=True, read_only=True)
 
     class Meta:
         model = models.Category
