@@ -18,5 +18,8 @@ COPY . .
 RUN addgroup -S non-root && adduser -S non-root -G non-root
 USER non-root
 
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+
 EXPOSE 8000
 CMD ["sh", "run.sh"]
