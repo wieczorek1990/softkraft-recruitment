@@ -41,6 +41,7 @@ DJANGO_APPS = [
 EXTENSION_APPS = [
     "rest_framework",
     "django_filters",
+    "django_extensions",
 ]
 LOCAL_APPS = ["api"]
 INSTALLED_APPS = DJANGO_APPS + EXTENSION_APPS + LOCAL_APPS
