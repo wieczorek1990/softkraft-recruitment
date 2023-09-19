@@ -1,12 +1,8 @@
-from django.db.models import query
 from django.db import models as django_models
+from django.db.models import query
+from rest_framework import generics, permissions
 
-from rest_framework import generics
-from rest_framework import permissions
-
-from api import enums
-from api import models
-from api import serializers
+from api import enums, models, serializers
 
 
 class ProductListView(generics.ListAPIView):
@@ -27,7 +23,7 @@ class ProductListView(generics.ListAPIView):
             filter_case = enums.FilterEnum.ALL
         return filter_case
 
-    def filter_queryset(self, queryset) -> query.QuerySet:
+    def filter_queryset(self, queryset: query.QuerySet) -> query.QuerySet:
         slug = self.kwargs["slug"]
         filters = {self.lookup_field: slug}
         queryset = queryset.filter(**filters)
@@ -39,7 +35,7 @@ class ProductListView(generics.ListAPIView):
                     django_models.Prefetch(
                         "products",
                         queryset=models.Product.objects.all(),
-                        to_attr="filtered_products"
+                        to_attr="filtered_products",
                     )
                 )
             case enums.FilterEnum.WITH:
@@ -49,7 +45,7 @@ class ProductListView(generics.ListAPIView):
                         queryset=models.Product.objects.filter(
                             order_items__isnull=False
                         ),
-                        to_attr="filtered_products"
+                        to_attr="filtered_products",
                     )
                 )
             case enums.FilterEnum.WITHOUT:
@@ -59,7 +55,7 @@ class ProductListView(generics.ListAPIView):
                         queryset=models.Product.objects.filter(
                             order_items__isnull=True
                         ),
-                        to_attr="filtered_products"
+                        to_attr="filtered_products",
                     )
                 )
 
